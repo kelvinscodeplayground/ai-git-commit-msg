@@ -3,16 +3,16 @@ revision = 5
 requires-python = ">=3.15"
 
 [[package]]
-name = "ollama-cli-proxy"
+name = "ai-git-commit-msg"
 version = "0.1.0"
 source = { editable = "." }
 
 [package.dev-dependencies]
 dev = [
-    { name = "ollama-cli-proxy" },
+    { name = "ai-git-commit-msg" },
 ]
 
 [package.metadata]
 
 [package.metadata.requires-dev]
-dev = [{ name = "ollama-cli-proxy", editable = "." }]
+dev = [{ name = "ai-git-commit-msg", editable = "." }]

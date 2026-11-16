@@ -4,4 +4,4 @@
 
 
 def main() -> None:
-    print("Hello from ollama-cli-proxy!")
+    print("Hello from ai-git-commit-msg!")
