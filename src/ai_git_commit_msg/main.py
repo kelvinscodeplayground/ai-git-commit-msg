@@ -1,6 +1,8 @@
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
+import configparser
+import pathlib
 import subprocess
 
 import typer
@@ -16,7 +18,13 @@ def entry(model: str | None = None):
         model = "ollama"
 
     diff = get_git_diff()
-    print(ollama.request(diff))
+    config_dir = pathlib.Path.home() / ".config" / "ai-git-commit-msg" / "config.ini"
+
+    config = configparser.ConfigParser()
+    if config_dir.exists():
+        config.read(config_dir)
+
+    print(ollama.request(diff, config))
 
 
 def get_git_diff() -> str:

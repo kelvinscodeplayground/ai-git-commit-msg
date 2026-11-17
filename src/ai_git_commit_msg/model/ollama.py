@@ -5,13 +5,21 @@
 
 import json
 import subprocess
+from configparser import ConfigParser
 
 from ai_git_commit_msg.model.prompts import SYS_PROP
 
 
-def request(prompt: str) -> str:
-    host = "http://localhost:11434/api/generate"
-    model = "gemma4:e2b-it-qat"
+def request(prompt: str, config: ConfigParser) -> str:
+    host = (
+        config.get("ollama", "host", fallback="http://localhost:11434")
+        + "/api/generate"
+    )
+    model = config.get("ollama", "model", fallback=None)
+
+    if not model:
+        raise ValueError("ollama_model is not set in the config file")
+
     prompt_obj = {
         "model": model,
         "system": SYS_PROP,
