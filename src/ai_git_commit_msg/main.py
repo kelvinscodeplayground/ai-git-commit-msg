@@ -35,4 +35,8 @@ def get_git_diff() -> str:
 
 
 def main() -> None:
-    app()
+    try:
+        app()
+    except Exception as e:  # noqa: BLE001
+        typer.secho(f"Error: {e}", fg=typer.colors.RED, bold=True)
+        raise SystemExit(1)
