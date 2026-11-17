@@ -5,7 +5,9 @@ description = "Add your description here"
 readme = "README.md"
 authors = [{ name = "Kelvin Chin", email = "chinkaiwen_35@outlook.com" }]
 requires-python = ">=3.15"
-dependencies = []
+dependencies = [
+    "typer>=0.29.1",
+]
 
 [project.scripts]
 gen-git-msg = "ai_git_commit_msg.main:main"
