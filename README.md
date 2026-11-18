@@ -61,10 +61,10 @@ host = http://localhost:11434
 model = llama3
 ```
 
-| Key     | Section  | Default                  | Description                                  |
-| ------- | -------- | ------------------------ | -------------------------------------------- |
-| `host`  | `ollama` | `http://localhost:11434` | Base URL of the Ollama server.               |
-| `model` | `ollama` | *(none, required)*       | Name of the Ollama model used to generate messages. |
+| Key     | Section  | Default                  | Description                                         |
+| ------- | -------- | ------------------------ | --------------------------------------------------- |
+| `host`  | `ollama` | `http://localhost:11434` | Base URL of the Ollama server.                      |
+| `model` | `ollama` | _(none, required)_       | Name of the Ollama model used to generate messages. |
 
 If `model` is not set, the tool exits with an error.
 
