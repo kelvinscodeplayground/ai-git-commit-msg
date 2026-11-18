@@ -1,7 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
-# License, v. 2.0. If a copy of the MPL was not distributed with this
-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
+# credit: https://github.com/zed-industries/zed/blob/main/crates/git_ui/src/commit_message_prompt.txt, GLP v3 Licensed
 COMMIT_MESSAGE = """You are an expert at writing Git commits. Your job is to write a short clear commit message that summarizes the changes.
 
 If you can accurately express the change in just the subject line, don't include anything in the message body. Only use the body when it is providing *useful* information.
