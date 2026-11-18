@@ -7,7 +7,7 @@ import subprocess
 
 import typer
 
-from ai_git_commit_msg.model import ollama
+from ai_git_helper.model import ollama
 
 app = typer.Typer()
 

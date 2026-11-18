@@ -7,7 +7,7 @@ import json
 import subprocess
 from configparser import ConfigParser
 
-from ai_git_commit_msg.model.prompts import SYS_PROP
+from ai_git_helper.model.prompts import SYS_PROP
 
 
 def request(prompt: str, config: ConfigParser) -> str:

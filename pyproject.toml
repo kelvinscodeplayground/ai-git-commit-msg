@@ -1,16 +1,14 @@
 [project]
-name = "ai-git-commit-msg"
+name = "ai-git-helper"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 authors = [{ name = "Kelvin Chin", email = "chinkaiwen_35@outlook.com" }]
 requires-python = ">=3.15"
-dependencies = [
-    "typer>=0.29.1",
-]
+dependencies = ["typer>=0.29.1"]
 
 [project.scripts]
-gen-git-msg = "ai_git_commit_msg.main:main"
+git-helper = "ai_git_helper.main:main"
 
 [build-system]
 requires = ["uv_build>=0.13.7,<0.14.0"]
@@ -21,12 +19,14 @@ members = [
     ".",
     ".",
     ".",
+    ".",
+    ".",
 ]
 
 [tool.uv.sources]
-ai-git-commit-msg = { workspace = true }
+ai-git-helper = { workspace = true }
 
 [dependency-groups]
 dev = [
-    "ai-git-commit-msg",
+    "ai-git-helper",
 ]

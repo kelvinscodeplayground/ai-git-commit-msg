@@ -3,7 +3,7 @@ revision = 5
 requires-python = ">=3.15"
 
 [[package]]
-name = "ai-git-commit-msg"
+name = "ai-git-helper"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
@@ -12,14 +12,14 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "ai-git-commit-msg" },
+    { name = "ai-git-helper" },
 ]
 
 [package.metadata]
 requires-dist = [{ name = "typer", specifier = ">=0.29.1" }]
 
 [package.metadata.requires-dev]
-dev = [{ name = "ai-git-commit-msg", editable = "." }]
+dev = [{ name = "ai-git-helper", editable = "." }]
 
 [[package]]
 name = "annotated-doc"
