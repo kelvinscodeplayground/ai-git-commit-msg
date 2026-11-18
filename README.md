@@ -33,6 +33,24 @@ cd ai-git-helper
 uv sync
 ```
 
+### Install a prebuilt release
+
+Download the `.whl` file from the [releases page](https://github.com/kelvinscodeplayground/ai-git-helper/releases), then install it as a tool:
+
+```sh
+uv tool install ./ai_git_helper-<version>-py3-none-any.whl
+```
+
+Or install directly from the release URL:
+
+```sh
+uv tool install https://github.com/kelvinscodeplayground/ai-git-helper/releases/download/v<version>/ai_git_helper-<version>-py3-none-any.whl
+```
+
+Replace `<version>` with the release version, for example `1.0.0`. After installing, run `git-helper` from any Git repository. Create the config file as described below.
+
+To upgrade, run the install command again with `--force` and the newer wheel. To remove it, run `uv tool uninstall ai-git-helper`.
+
 ## Configuration
 
 Create the config file at `~/.config/ai-git-helper/config.ini`:
