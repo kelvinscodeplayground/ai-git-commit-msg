@@ -11,7 +11,7 @@ def request(prompt: str, sys_prompt: str, config: ConfigParser) -> str:
     model = config.get("ollama", "model", fallback=None)
 
     if not model:
-        raise ValueError("ollama_model is not set in the config file")
+        raise ValueError("ollama.model is not set in the config file")
 
     if prompt is None or prompt.strip() == "":
         raise ValueError("Prompt is empty")
