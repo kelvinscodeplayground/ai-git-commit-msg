@@ -1,4 +1,5 @@
-# credit: https://github.com/zed-industries/zed/blob/main/crates/git_ui/src/commit_message_prompt.txt, GLP v3 Licensed
+# Commit message prompt adapted from Zed Editor (https://github.com/zed-industries/zed)
+# Copyright (c) Zed Industries, Inc. - Licensed under GPL-3.0
 COMMIT_MESSAGE = """You are an expert at writing Git commits. Your job is to write a short clear commit message that summarizes the changes.
 
 If you can accurately express the change in just the subject line, don't include anything in the message body. Only use the body when it is providing *useful* information.
