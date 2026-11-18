@@ -7,7 +7,7 @@ import subprocess
 
 import typer
 
-from ai_git_helper.model import ollama
+from ai_git_helper.model import ollama, prompts
 
 app = typer.Typer()
 
@@ -19,7 +19,7 @@ def commit_msg(model: str | None = None):
 
     diff = get_git_diff()
     config = get_config()
-    print(ollama.request(diff, config))
+    print(ollama.request(prompt=diff, sys_prompt=prompts.COMMIT_MESSAGE, config=config))
 
 
 def get_config() -> configparser.ConfigParser:
@@ -43,5 +43,5 @@ def main() -> None:
     try:
         app()
     except Exception as e:  # noqa: BLE001
-        typer.secho(f"Error: {e}", fg=typer.colors.RED, bold=True)
+        typer.secho(f"Error: {e}", fg=typer.colors.RED, bold=True, err=True)
         raise SystemExit(1)

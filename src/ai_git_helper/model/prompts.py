@@ -2,7 +2,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-SYS_PROP = """You are an expert at writing Git commits. Your job is to write a short clear commit message that summarizes the changes.
+COMMIT_MESSAGE = """You are an expert at writing Git commits. Your job is to write a short clear commit message that summarizes the changes.
 
 If you can accurately express the change in just the subject line, don't include anything in the message body. Only use the body when it is providing *useful* information.
 

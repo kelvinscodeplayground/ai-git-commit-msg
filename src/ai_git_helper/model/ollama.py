@@ -7,10 +7,8 @@ import json
 import subprocess
 from configparser import ConfigParser
 
-from ai_git_helper.model.prompts import SYS_PROP
 
-
-def request(prompt: str, config: ConfigParser) -> str:
+def request(prompt: str, sys_prompt: str, config: ConfigParser) -> str:
     host = (
         config.get("ollama", "host", fallback="http://localhost:11434")
         + "/api/generate"
@@ -25,7 +23,7 @@ def request(prompt: str, config: ConfigParser) -> str:
 
     prompt_obj = {
         "model": model,
-        "system": SYS_PROP,
+        "system": sys_prompt,
         "prompt": prompt,
         "stream": False,
     }
