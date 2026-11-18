@@ -20,18 +20,30 @@ def request(prompt: str, sys_prompt: str, config: ConfigParser) -> str:
         "model": model,
         "system": sys_prompt,
         "prompt": prompt,
-        "stream": False,
     }
     # post to host via curl
 
     # fmt: off
-    output = subprocess.run([
-        "curl", "-X", "POST", host,
+    proc = subprocess.Popen([
+        "curl", "-sS", "-N", "-X", "POST", host,
         "-H", "Content-Type: application/json",
         "-d", json.dumps(prompt_obj),
-    ], check=True, capture_output=True, text=True)
+    ], stdout=subprocess.PIPE, text=True)
     # fmt: on
 
-    response = json.loads(output.stdout)
+    chunks: [str] = []
+    for line in proc.stdout:
+        if not line.strip():
+            continue
 
-    return response["response"]
+        obj = json.loads(line)
+        token = obj.get("response", "")
+        chunks.append(token)
+        print(token, end="", flush=True)
+
+        if obj.get("done"):
+            break
+
+    proc.wait()
+
+    return "".join(chunks)

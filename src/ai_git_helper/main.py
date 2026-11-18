@@ -16,7 +16,7 @@ def commit_msg(model: str | None = None):
 
     diff = get_git_diff()
     config = get_config()
-    print(ollama.request(prompt=diff, sys_prompt=prompts.COMMIT_MESSAGE, config=config))
+    ollama.request(prompt=diff, sys_prompt=prompts.COMMIT_MESSAGE, config=config)
 
 
 def get_config() -> configparser.ConfigParser:
