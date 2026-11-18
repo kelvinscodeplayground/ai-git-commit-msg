@@ -13,18 +13,23 @@ app = typer.Typer()
 
 
 @app.command()
-def entry(model: str | None = None):
+def commit_msg(model: str | None = None):
     if model is None:
         model = "ollama"
 
     diff = get_git_diff()
-    config_dir = pathlib.Path.home() / ".config" / "ai-git-commit-msg" / "config.ini"
+    config = get_config()
+    print(ollama.request(diff, config))
+
+
+def get_config() -> configparser.ConfigParser:
+    config_dir = pathlib.Path.home() / ".config" / "ai-git-helper" / "config.ini"
 
     config = configparser.ConfigParser()
     if config_dir.exists():
         config.read(config_dir)
 
-    print(ollama.request(diff, config))
+    return config
 
 
 def get_git_diff() -> str:

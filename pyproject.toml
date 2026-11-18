@@ -15,18 +15,10 @@ requires = ["uv_build>=0.13.7,<0.14.0"]
 build-backend = "uv_build"
 
 [tool.uv.workspace]
-members = [
-    ".",
-    ".",
-    ".",
-    ".",
-    ".",
-]
+members = ["."]
 
 [tool.uv.sources]
 ai-git-helper = { workspace = true }
 
 [dependency-groups]
-dev = [
-    "ai-git-helper",
-]
+dev = ["ai-git-helper"]
