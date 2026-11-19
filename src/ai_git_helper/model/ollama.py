@@ -31,7 +31,10 @@ def request(prompt: str, sys_prompt: str, config: ConfigParser) -> str:
     ], stdout=subprocess.PIPE, text=True)
     # fmt: on
 
-    chunks: [str] = []
+    if proc.stdout is None:
+        raise RuntimeError("Failed to get response from Ollama API")
+
+    chunks: list[str] = []
     for line in proc.stdout:
         if not line.strip():
             continue
